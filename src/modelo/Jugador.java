@@ -5,6 +5,8 @@
  */
 package modelo;
 
+import java.util.ArrayList;
+
 /**
  *
  * @author Brais
@@ -13,6 +15,7 @@ public class Jugador {
 
     private String nombre;
     private int nivel, vida, vidaMaxima, ataque, defensa;
+    private ArrayList<ArrayList<Objeto>> inventario;
 
     public Jugador(String nombre) {
         this.nombre = nombre;
@@ -21,6 +24,11 @@ public class Jugador {
         this.vida = 100;
         this.ataque = 20;
         this.defensa = 20;
+        inventario = new ArrayList<>();
+        inventario.add(new ArrayList<>());
+        for (int i = 0; i < 10; i++) {
+            inventario.get(0).add(new Objeto("Pocion"));
+        }
     }
 
     public String getNombre() {
@@ -71,9 +79,13 @@ public class Jugador {
         this.defensa = defensa;
     }
 
+    public ArrayList<ArrayList<Objeto>> getInventario() {
+        return inventario;
+    }
+
     @Override
     public String toString() {
-        return "Estadisticas:\nnombre=" + nombre + "\nnivel=" + nivel + "\nvida=" + vida + "/" + vidaMaxima + "\nataque=" + ataque + "\ndefensa=" + defensa;
+        return "Estadisticas:\nnombre:" + nombre + "\nnivel:" + nivel + "\nvida:" + vida + "/" + vidaMaxima + "\nataque:" + ataque + "\ndefensa:" + defensa;
     }
 
 }
