@@ -36,10 +36,10 @@ public class Controller {
             casos = seleccionModoJuego();
             switch (casos) {
                 case 1:
-                    unJugador();
+                    partidaUnJugador();
                     break;
                 case 2:
-                    multijugador();
+                    crearJugadores();
                     break;
                 case 3:
                     v.menuAyuda();
@@ -61,14 +61,41 @@ public class Controller {
 
     }
 
-    public static void unJugador() {
+    public static void partidaUnJugador() {
+        crearUnJugador();
+        int opcion = -1;
+        while (jugador.getVida() > 0 && opcion != 0) {
+            opcion = v.menuUnJugador();
+            switch (opcion) {
+                case 1:
+                    v.escribir(jugador.toString());
+                    break;
+                case 2:
+                    break;
+                case 3:
+                    break;
+                case 4:
+                    break;
+                case 5:
+                    break;
+                case 0:
+                    v.escribir("Saliendo...");
+                    break;
+                default:
+                    break;
+            }
+        }
+        v.escribir("Estadisticas finales");
+        v.escribir(jugador.toString());
+    }
+
+    public static void crearUnJugador() {
         String nombre;
         nombre = v.escribirOut("Escribe tu nombre:");
         jugador = new Jugador(nombre);
     }
-    
 
-    public static void multijugador() {
+    public static void crearJugadores() {
         v.escribir("No soportado por ahora");
         String nombre, genero;
         boolean jugadorNoCreado;
