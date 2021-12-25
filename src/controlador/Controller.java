@@ -5,6 +5,10 @@
  */
 package controlador;
 
+import java.util.ArrayList;
+import modelo.Jugador;
+import modelo.JugadorMulti;
+import util.Utiles;
 import vista.View;
 
 /**
@@ -14,6 +18,8 @@ import vista.View;
 public class Controller {
 
     static View v = new View();
+    static Jugador jugador;
+    static ArrayList<JugadorMulti> jugadores;
 
     /**
      * @param args the command line arguments
@@ -50,16 +56,38 @@ public class Controller {
         int modoJuego;
         do {
             modoJuego = v.menuModoJuego();
-        } while (!(modoJuego >= 0 && modoJuego <= 2));
+        } while (!(modoJuego >= 0 && modoJuego <= 3));
         return modoJuego;
 
     }
 
     public static void unJugador() {
-
+        String nombre;
+        nombre = v.escribirOut("Escribe tu nombre:");
+        jugador = new Jugador(nombre);
     }
+    
 
     public static void multijugador() {
         v.escribir("No soportado por ahora");
+        String nombre, genero;
+        boolean jugadorNoCreado;
+        nombre = v.escribirOut("Escribe tu nombre:");
+        do {
+            genero = Utiles.primeraLetra(v.escribirOut("Cual es tu género(H/M):"));
+            switch (genero) {
+                case "h":
+                    jugadores.add(new JugadorMulti(nombre, JugadorMulti.HOMBRE));
+                    jugadorNoCreado = false;
+                    break;
+                case "m":
+                    jugadores.add(new JugadorMulti(nombre, JugadorMulti.HOMBRE));
+                    jugadorNoCreado = false;
+                    break;
+                default:
+                    v.escribir("Escribe elige entre H/M");
+                    jugadorNoCreado = true;
+            }
+        } while (jugadorNoCreado);
     }
 }
