@@ -11,14 +11,13 @@ package modelo;
  */
 public class Jugador {
 
-    
-
     private String nombre;
-    private int nivel, vida, ataque, defensa;
+    private int nivel, vida, vidaMaxima, ataque, defensa;
 
     public Jugador(String nombre) {
         this.nombre = nombre;
         this.nivel = 1;
+        this.vidaMaxima = 100;
         this.vida = 100;
         this.ataque = 20;
         this.defensa = 20;
@@ -38,6 +37,14 @@ public class Jugador {
 
     public void setNivel(int nivel) {
         this.nivel = nivel;
+    }
+
+    public int getVidaMaxima() {
+        return vidaMaxima;
+    }
+
+    public void setVidaMaxima(int vidaMaxima) {
+        this.vidaMaxima = vidaMaxima;
     }
 
     public int getVida() {
@@ -63,5 +70,5 @@ public class Jugador {
     public void setDefensa(int defensa) {
         this.defensa = defensa;
     }
-    
+
 }
