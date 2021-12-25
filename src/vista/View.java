@@ -40,4 +40,11 @@ public class View {
         }
         return salida;
     }
+
+    public void menuAyuda() {
+        System.out.println("*************************************************");
+        System.out.println("*  Este es un juego RPG, que tiene 2 modos de   *\n"
+                + "juego");
+        System.out.println("*************************************************");
+    }
 }
