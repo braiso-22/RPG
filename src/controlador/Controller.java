@@ -16,7 +16,7 @@ import vista.View;
  * @author Brais
  */
 public class Controller {
-
+    
     static View v = new View();
     static Jugador jugador;
     static ArrayList<JugadorMulti> jugadores;
@@ -25,11 +25,11 @@ public class Controller {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-
+        
         v.bienvenida();
         bucleJuego();
     }
-
+    
     public static void bucleJuego() {
         int casos;
         do {
@@ -51,16 +51,16 @@ public class Controller {
             }
         } while (casos != 0);
     }
-
+    
     public static int seleccionModoJuego() {
         int modoJuego;
         do {
             modoJuego = v.menuModoJuego();
         } while (!(modoJuego >= 0 && modoJuego <= 3));
         return modoJuego;
-
+        
     }
-
+    
     public static void partidaUnJugador() {
         crearUnJugador();
         int opcion = -1;
@@ -75,6 +75,7 @@ public class Controller {
                 case 3:
                     break;
                 case 4:
+                    mostrarIventario();
                     break;
                 case 5:
                     break;
@@ -88,13 +89,13 @@ public class Controller {
         v.escribir("Estadisticas finales");
         v.escribir(jugador.toString());
     }
-
+    
     public static void crearUnJugador() {
         String nombre;
         nombre = v.escribirOut("Escribe tu nombre:");
         jugador = new Jugador(nombre);
     }
-
+    
     public static void crearJugadores() {
         v.escribir("No soportado por ahora");
         String nombre, genero;
@@ -116,5 +117,12 @@ public class Controller {
                     jugadorNoCreado = true;
             }
         } while (jugadorNoCreado);
+    }
+    
+    private static void mostrarIventario() {
+        jugador.getInventario().forEach(objetos -> {
+            v.escribir(objetos.get(0).toString() + "·" + objetos.size());
+        });
+        
     }
 }
