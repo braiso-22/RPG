@@ -35,6 +35,9 @@ public class Controller {
                 case 2:
                     multijugador();
                     break;
+                case 3:
+                    v.menuAyuda();
+                    break;
                 case 0:
                     v.escribir("Saliendo...");
                 default:

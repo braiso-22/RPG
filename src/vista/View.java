@@ -42,9 +42,17 @@ public class View {
     }
 
     public void menuAyuda() {
-        System.out.println("*************************************************");
-        System.out.println("*  Este es un juego RPG, que tiene 2 modos de   *\n"
-                + "juego");
-        System.out.println("*************************************************");
+        System.out.println("**************************************************");
+        System.out.println("*  Este es un RPG, que tiene 2 modos de juego:   *");
+        System.out.println("*                                                *");
+        System.out.println("*  En el modo un jugador te enfrentarás a varios *");
+        System.out.println("*  enemigos de manera indefinida hasta la muerte *");
+        System.out.println("*                                                *");
+        System.out.println("*  En el modo multijugador te enfrentarás entre  *");
+        System.out.println("*  varios compañeros de combate a enemigos       *");
+        System.out.println("*  luchando por el puesto de master hasta llegar *");
+        System.out.println("*  al codiciado nivel 10                         *");
+        System.out.println("*                                                *");
+        System.out.println("**************************************************");
     }
 }
