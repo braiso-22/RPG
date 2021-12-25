@@ -71,4 +71,9 @@ public class Jugador {
         this.defensa = defensa;
     }
 
+    @Override
+    public String toString() {
+        return "Estadisticas:\nnombre=" + nombre + "\nnivel=" + nivel + "\nvida=" + vida + "/" + vidaMaxima + "\nataque=" + ataque + "\ndefensa=" + defensa;
+    }
+
 }
