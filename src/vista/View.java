@@ -37,13 +37,7 @@ public class View {
         System.out.println("*  0.- Salir\t\t*");
         System.out.println("*************************");
 
-        int salida = -1;
-        try {
-            salida = Integer.parseInt(teclado.nextLine());
-        } catch (NumberFormatException e) {
-            System.out.println("Introduce una de las opciones");
-        }
-        return salida;
+        return pedirNum();
     }
 
     public void menuAyuda() {
@@ -59,6 +53,29 @@ public class View {
         System.out.println("*  al codiciado nivel 10                         *");
         System.out.println("*                                                *");
         System.out.println("**************************************************");
+    }
+
+    public int menuUnJugador() {
+        System.out.println("*************************");
+        System.out.println("*   1.-Ver perfil       *");
+        System.out.println("*   2.-Cazar            *");
+        System.out.println("*   3.-Aventura         *");
+        System.out.println("*   4.-Inventario       *");
+        System.out.println("*   5.-Tienda           *");
+        System.out.println("*   0.-Salir            *");
+        System.out.println("*************************");
+
+        return pedirNum();
+    }
+
+    private int pedirNum() {
+        int salida = -1;
+        try {
+            salida = Integer.parseInt(teclado.nextLine());
+        } catch (NumberFormatException e) {
+            System.out.println("Introduce una de las opciones");
+        }
+        return salida;
     }
 
 }
