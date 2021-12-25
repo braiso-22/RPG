@@ -19,6 +19,11 @@ public class View {
         System.out.println(texto);
     }
 
+    public String escribirOut(String texto) {
+        System.out.println(texto);
+        return teclado.nextLine();
+    }
+
     public void bienvenida() {
         System.out.println("Bienvenido a: Duelo a muerte con cuchillos!");
     }
@@ -28,7 +33,7 @@ public class View {
         System.out.println("*************************");
         System.out.println("*  1.- Un jugador\t*");
         System.out.println("*  2.- Multijugador\t*");
-        System.out.println("*  3.- Ayuda\t*");
+        System.out.println("*  3.- Ayuda\t\t*");
         System.out.println("*  0.- Salir\t\t*");
         System.out.println("*************************");
 
@@ -55,4 +60,5 @@ public class View {
         System.out.println("*                                                *");
         System.out.println("**************************************************");
     }
+
 }
