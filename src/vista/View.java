@@ -62,6 +62,7 @@ public class View {
         System.out.println("*   3.-Aventura         *");
         System.out.println("*   4.-Inventario       *");
         System.out.println("*   5.-Tienda           *");
+        System.out.println("*   6.-Ayuda            *");
         System.out.println("*   0.-Salir            *");
         System.out.println("*************************");
 
