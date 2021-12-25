@@ -14,7 +14,7 @@ import java.util.ArrayList;
 public class Jugador {
 
     private String nombre;
-    private int nivel, vida, vidaMaxima, ataque, defensa;
+    private int nivel, vida, vidaMaxima, ataque, defensa, dinero;
     private ArrayList<ArrayList<Objeto>> inventario;
 
     public Jugador(String nombre) {
@@ -24,6 +24,7 @@ public class Jugador {
         this.vida = 100;
         this.ataque = 20;
         this.defensa = 20;
+        this.dinero = 1000;
         inventario = new ArrayList<>();
         inventario.add(new ArrayList<>());
         for (int i = 0; i < 10; i++) {
@@ -85,7 +86,13 @@ public class Jugador {
 
     @Override
     public String toString() {
-        return "Estadisticas:\nnombre:" + nombre + "\nnivel:" + nivel + "\nvida:" + vida + "/" + vidaMaxima + "\nataque:" + ataque + "\ndefensa:" + defensa;
+        return "Estadisticas:"
+                + "\nnombre:" + nombre
+                + "\nnivel:" + nivel
+                + "\nvida:" + vida + "/" + vidaMaxima
+                + "\nataque:" + ataque
+                + "\ndefensa:" + defensa
+                + "\ndinero:" + dinero;
     }
 
 }
