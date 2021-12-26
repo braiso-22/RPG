@@ -13,10 +13,11 @@ import java.util.Objects;
  */
 public class Objeto {
 
-    private String nombre;
+    private String nombre, descripcion;
 
-    public Objeto(String nombre) {
+    public Objeto(String nombre, String descripcion) {
         this.nombre = nombre;
+        this.descripcion = descripcion;
     }
 
     @Override
