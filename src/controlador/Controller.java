@@ -6,9 +6,10 @@
 package controlador;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 import modelo.Jugador;
 import modelo.JugadorMulti;
-import util.Utiles;
+import modelo.Objeto;
 import vista.View;
 
 /**
@@ -77,7 +78,12 @@ public class Controller {
                     //TODO
                     break;
                 case 4:
-                    mostrarIventario();
+                    while (opcion != 0) {
+                        opcion = v.mostrarInventarioUnJugador(jugador);
+                        opcionesInventario(opcion);
+                    }
+                    opcion = -1;
+
                     break;
                 case 5:
                     //TODO
@@ -126,10 +132,61 @@ public class Controller {
         } while (jugadorNoCreado);*/
     }
 
-    private static void mostrarIventario() {
-        jugador.getInventario().forEach(objetos -> {
-            v.escribir(objetos.get(0).toString() + "·" + objetos.size());
-        });
+    public static void opcionesInventario(int opcion) {
+        switch (opcion) {
+            case 1:
+                usarObjeto();
+                break;
 
+            case 2:
+                infoObjeto();
+                break;
+            case 0:
+                v.escribir("volviendo al menú");
+                break;
+            default:
+                break;
+        }
+    }
+
+    public static void usarObjeto() {
+        boolean encontrado = false;
+        String objeto = v.escribirOut("Elige el objeto que vas a usar:");
+        for (ArrayList<Objeto> objetos : jugador.getInventario()) {
+            Objeto actual = objetos.get(0);
+            if (actual.toString().equalsIgnoreCase(objeto)) {
+                encontrado = true;
+                if (actual.isUsable()) {
+                    actual.usar(jugador);
+                    objetos.remove(actual);
+                } else {
+                    v.escribir("Ese objeto no se puede usar");
+                }
+                break;
+            }
+        }
+        if (!encontrado) {
+            v.escribir("No tienes ese objeto o lo has escrito mal");
+        }
+    }
+
+    public static void infoObjeto() {
+        boolean encontrado = false;
+        String objeto = v.escribirOut("Elige el objeto del que quieres ver la info:");
+        for (ArrayList<Objeto> objetos : jugador.getInventario()) {
+            Objeto actual = objetos.get(0);
+            if (actual.toString().equalsIgnoreCase(objeto)) {
+                encontrado = true;
+                if (actual.isUsable()) {
+                    v.escribir(actual.getDescripcion());
+                } else {
+                    v.escribir("Ese objeto no se puede usar");
+                }
+                break;
+            }
+        }
+        if (!encontrado) {
+            v.escribir("No tienes ese objeto o lo has escrito mal");
+        }
     }
 }
