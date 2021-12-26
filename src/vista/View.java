@@ -79,4 +79,13 @@ public class View {
         return salida;
     }
 
+    public void menuAyudaPartidaUnJugador() {
+        System.out.println("**********************************");
+        System.out.println("*  1.-Que es cazar y aventura?   *");
+        System.out.println("*  2.-Informacion sobre objetos  *");
+        System.out.println("*  0.-Salir                      *");
+        System.out.println("**********************************");
+
+    }
+
 }
