@@ -22,9 +22,9 @@ public class Jugador {
         this.nivel = 1;
         this.vidaMaxima = 100;
         this.vida = 100;
-        this.ataque = 20;
-        this.defensa = 20;
-        this.dinero = 1000;
+        this.ataque = 1;
+        this.defensa = 3;
+        this.dinero = 25;
         inventario = new ArrayList<>();
         inventario.add(new ArrayList<>());
         for (int i = 0; i < 10; i++) {
@@ -80,9 +80,18 @@ public class Jugador {
         this.defensa = defensa;
     }
 
+    public int getDinero() {
+        return dinero;
+    }
+
+    public void setDinero(int dinero) {
+        this.dinero = dinero;
+    }
+
     public ArrayList<ArrayList<Objeto>> getInventario() {
         return inventario;
     }
+    
 
     @Override
     public String toString() {
