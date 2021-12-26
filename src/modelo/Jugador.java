@@ -28,7 +28,7 @@ public class Jugador {
         inventario = new ArrayList<>();
         inventario.add(new ArrayList<>());
         for (int i = 0; i < 10; i++) {
-            inventario.get(0).add(new Objeto("Pocion", "Es un potingue rojizo que te cura toda la vida"));
+            inventario.get(0).add(new Objeto("Pocion", "Es un potingue rojizo que te cura toda la vida", true));
         }
     }
 

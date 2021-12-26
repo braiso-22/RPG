@@ -6,6 +6,7 @@
 package vista;
 
 import java.util.Scanner;
+import modelo.Jugador;
 
 /**
  *
@@ -88,4 +89,20 @@ public class View {
 
     }
 
+    public int mostrarInventarioUnJugador(Jugador jugador) {
+        System.out.println("*************************");
+        recorreInventario(jugador);
+        System.out.println("*************************");
+        System.out.println("*  1.-Usar              *");
+        System.out.println("*  2.-Info              *");
+        System.out.println("*  0.-Salir             *");
+        System.out.println("*************************");
+        return pedirNum();
+    }
+
+    private void recorreInventario(Jugador jugador) {
+        jugador.getInventario().forEach(objetos -> {
+            System.out.println("*  " + objetos.get(0) + "·" + objetos.size() + "\t\t*");
+        });
+    }
 }
