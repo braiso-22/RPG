@@ -6,6 +6,7 @@
 package modelo;
 
 import java.util.Objects;
+import vista.View;
 
 /**
  *
@@ -13,16 +14,19 @@ import java.util.Objects;
  */
 public class Objeto {
 
+    private final View v;
     private String nombre, descripcion;
     private boolean usable;
 
     public Objeto(String nombre, String descripcion) {
+        this.v = new View();
         this.nombre = nombre;
         this.descripcion = descripcion;
         this.usable = false;
     }
 
     public Objeto(String nombre, String descripcion, boolean usable) {
+        this.v = new View();
         this.nombre = nombre;
         this.descripcion = descripcion;
         this.usable = usable;
@@ -74,6 +78,7 @@ public class Objeto {
                     jugador.setVida(jugador.getVidaMaxima());
                     return true;
                 } else {
+                    v.escribir("Ya tienes la vida al máximo");
                     return false;
                 }
             default:
