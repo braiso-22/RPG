@@ -66,14 +66,18 @@ public class Objeto {
         return nombre;
     }
 
-    public void usar(Jugador jugador) {
+    public boolean usar(Jugador jugador) {
         String objetoActual = this.nombre;
         switch (objetoActual) {
             case "Pocion":
                 if (jugador.getVida() < jugador.getVidaMaxima()) {
                     jugador.setVida(jugador.getVidaMaxima());
+                    return true;
+                } else {
+                    return false;
                 }
-                break;
+            default:
+                return false;
         }
     }
 
