@@ -157,8 +157,9 @@ public class Controller {
             if (actual.toString().equalsIgnoreCase(objeto)) {
                 encontrado = true;
                 if (actual.isUsable()) {
-                    actual.usar(jugador);
-                    objetos.remove(actual);
+                    if (actual.usar(jugador)) {
+                        objetos.remove(actual);
+                    }
                 } else {
                     v.escribir("Ese objeto no se puede usar");
                 }
